@@ -1,13 +1,12 @@
 #ifndef SELECTIONSORT_H
 #define SELECTIONSORT_H
 
-#include "sorting.h"
+#include "sortstrategy.h"
 
 
-class SelectionSort : public Sorting
-{
+class SelectionSort : public SortStrategy{
 public:
-    void sort() override;
+    void sort(std::deque<std::string> lines) override;
 };
 
 #endif // SELECTIONSORT_H

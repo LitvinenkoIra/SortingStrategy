@@ -6,8 +6,8 @@ cmake_minimum_required(VERSION 2.8)
 
 set (SRC_LIST
     main.cpp
-    src/sorting.cpp
-    src/sorterstrategy.cpp
+    src/sorter.cpp
+    src/sortstrategy.cpp
     src/mergesort.cpp
     src/selectionsort.cpp
     src/quicksort.cpp

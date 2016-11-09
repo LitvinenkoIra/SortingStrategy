@@ -1,13 +1,12 @@
 #ifndef MERGESORT_H
 #define MERGESORT_H
 
-#include "sorting.h"
+#include "sortstrategy.h"
 
 
-class MergeSort : public Sorting
-{
+class MergeSort : public SortStrategy{
 public:
-    void sort() override;
+    void sort(std::deque<std::string> lines) override;
 };
 
 #endif // MERGESORT_H
