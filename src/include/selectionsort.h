@@ -6,7 +6,7 @@
 
 class SelectionSort : public SortStrategy{
 public:
-    void sort(std::deque<std::string> lines) override;
+    void sort(std::vector<std::string> lines) override;
 };
 
 #endif // SELECTIONSORT_H

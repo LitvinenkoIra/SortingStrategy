@@ -2,15 +2,19 @@
 #define SORTER_H
 
 #include "sortstrategy.h"
+#include "strategyfactory.h"
+#include "sortstrategy.h"
 
 
 class Sorter{
 public:
-    Sorter( SortStrategy* sort);
+    Sorter(std::unique_ptr<StrategyFactory> factory_);
     ~Sorter();
-    void sort(std::deque<std::string> lines);
+    void set(SortingType s);
+    void sort(std::vector<std::string> lines);
 private:
-    SortStrategy* p;
+    std::unique_ptr<StrategyFactory> factory_;
+    std::unique_ptr<SortStrategy> strategy_;
 };
 
 #endif // SORTER_H

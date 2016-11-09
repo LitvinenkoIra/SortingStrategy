@@ -1,6 +1,6 @@
 project(SorterWithStrategy)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 cmake_minimum_required(VERSION 2.8)
 
@@ -11,6 +11,8 @@ set (SRC_LIST
     src/mergesort.cpp
     src/selectionsort.cpp
     src/quicksort.cpp
+    src/strategyfactory.cpp
+    src/strategyfactoryimpl.cpp
     )
 
 
