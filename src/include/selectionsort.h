@@ -3,10 +3,11 @@
 
 #include "sortstrategy.h"
 
-
 class SelectionSort : public SortStrategy{
 public:
-    void sort(std::vector<std::string> lines) override;
+    SelectionSort(CompareStrategyFactory& cmp_strategy_factory);
+    void sort(std::vector<std::string>& lines, CompareType c) override;
+    CompareStrategyFactory& cmp_strategy_factory_;
 };
 
 #endif // SELECTIONSORT_H

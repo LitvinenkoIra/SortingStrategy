@@ -11,8 +11,8 @@ set (SRC_LIST
     src/mergesort.cpp
     src/selectionsort.cpp
     src/quicksort.cpp
-    src/strategyfactory.cpp
-    src/strategyfactoryimpl.cpp
+    src/sortstrategyfactoryimpl.cpp
+    src/comparestrategyfactory.cpp
     )
 
 

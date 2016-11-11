@@ -3,25 +3,16 @@
 #include <fstream>
 #include <memory>
 #include "sortstrategy.h"
-#include "strategyfactory.h"
-#include "strategyfactoryimpl.h"
+#include "sortstrategyfactory.h"
+#include "sortstrategyfactoryimpl.h"
 #include "sorter.h"
 #include "selectionsort.h"
 #include "mergesort.h"
 #include "quicksort.h"
+#include "comparestrategyfactory.h"
 
-bool compareToSize(const std::string& lvalue, const std::string& rvalue){
+void test_to_size_less(string_less less_func) {
 
-    return lvalue.size() < rvalue.size();
-}
-
-bool compareToVal(const std::string& lvalue, const std::string& rvalue){
-
-    for(int i = 0; i < std::min(lvalue.size(), rvalue.size()); i++){
-        if(lvalue[i] != rvalue[i])
-            return lvalue[i] < rvalue[i];
-    }
-    return lvalue.size() < rvalue.size();
 }
 
 int main(){
@@ -42,9 +33,16 @@ int main(){
         lines.push_back(line);
     }
 
-    Sorter sorter(std::make_unique<StrategyFactoryImpl>());
+
+    CompareStrategyFactory f;
+    auto less1 = f.createCompareFactory(kCompareToVal);
+    std::cout << less1("dd", "ddd") << std::endl;
+    std::cout << less1("ddddd", "cc") << std::endl;
+    std::cout << less1("0xxx", "xxx") << std::endl;
+
+    Sorter sorter(std::make_unique<SortStrategyFactoryImpl>(f));
     sorter.set(kMergeSort);
-    sorter.sort(lines);
+    sorter.sort(lines, kCompareToSize);
 
     return 0;
 }

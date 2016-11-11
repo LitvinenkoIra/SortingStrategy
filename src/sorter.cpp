@@ -1,17 +1,18 @@
 #include "include/sorter.h"
-#include "include/strategyfactory.h"
+#include "include/sortstrategyfactory.h"
 
-Sorter::Sorter(std::unique_ptr<StrategyFactory> factory):factory_(std::move(factory)){
-    strategy_ = std::move(factory_->createStrategy(kMergeSort));
+Sorter::Sorter(std::unique_ptr<SortStrategyFactory> factory):
+    factory_(std::move(factory)) {
+    strategy_ = std::move(factory_->createSortStrategy(kMergeSort));
 }
 
 Sorter::~Sorter(){}
 
 void Sorter::set(SortingType s){
-    strategy_ = std::move(factory_->createStrategy(s));
+    strategy_ = std::move(factory_->createSortStrategy(s));
 }
 
-void Sorter::sort(std::vector<std::string> lines){
-    strategy_->sort(lines);
+void Sorter::sort(std::vector<std::string> lines, CompareType c){
+    strategy_->sort(lines, c);
 }
 
