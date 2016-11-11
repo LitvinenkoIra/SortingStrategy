@@ -12,6 +12,7 @@ set (SRC_LIST
     src/quicksort.cpp
     src/sortstrategyfactoryimpl.cpp
     src/comparestrategyfactory.cpp
+    src/stdsort.cpp
     )
 
 include_directories(

@@ -8,6 +8,7 @@ enum SortingType{
     kMergeSort,
     kQuickSort,
     kSelectionSort,
+    kStdSort,
 };
 
 class SortStrategyFactory{

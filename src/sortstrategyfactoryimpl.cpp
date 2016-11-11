@@ -2,6 +2,7 @@
 #include "include/mergesort.h"
 #include "include/selectionsort.h"
 #include "include/quicksort.h"
+#include "include/stdsort.h"
 
 SortStrategyFactoryImpl::SortStrategyFactoryImpl(CompareStrategyFactory &cmp_strategy_factory)
     :cmp_strategy_factory_(cmp_strategy_factory){
@@ -15,6 +16,8 @@ std::unique_ptr<SortStrategy> SortStrategyFactoryImpl::createSortStrategy(Sortin
         return std::make_unique<QuickSort>(cmp_strategy_factory_);
     case kSelectionSort:
         return std::make_unique<SelectionSort>(cmp_strategy_factory_);
+    case kStdSort:
+        return std::make_unique<StdSort>(cmp_strategy_factory_);
     default:
         abort();
     }

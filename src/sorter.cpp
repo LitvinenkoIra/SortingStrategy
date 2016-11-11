@@ -12,7 +12,7 @@ void Sorter::set(SortingType s){
     strategy_ = std::move(factory_->createSortStrategy(s));
 }
 
-void Sorter::sort(std::vector<std::string> lines, CompareType c){
+void Sorter::sort(std::vector<std::string>& lines, CompareType c){
     strategy_->sort(lines, c);
 }
 

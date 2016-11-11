@@ -8,6 +8,7 @@ class MergeSort : public SortStrategy{
 public:
     MergeSort(CompareStrategyFactory& cmp_strategy_factory);
     void sort(std::vector<std::string>& lines, CompareType c) override;
+private:
     CompareStrategyFactory& cmp_strategy_factory_;
 };
 
