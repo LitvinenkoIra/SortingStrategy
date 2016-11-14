@@ -22,46 +22,196 @@ bool is_sorted(std::vector<T> data){
     return true;
 }
 
-LTEST(sorting_tests) {
 
-    typedef std::vector<std::string> StrVec;
+typedef std::vector<std::string> StrVec;
+CompareStrategyFactory cmp_strategy_factory;
+Sorter sorter(std::make_unique<SortStrategyFactoryImpl>(cmp_strategy_factory));
+StrVec already_sorted({"a","ab","abc"});
+StrVec empty_arr({});
+StrVec unsorted_arr({"abc","ab","a"});
+StrVec regular_case({"ab","a","abc"});
+StrVec mixed_arr({"AA", "1", "A", "1"});
+StrVec same_values({"a", "a", "a"});
 
-    LTEST(is_sorted_test){
-        LTEST(is_sorted_int_test){
 
-            EXPECT_TRUE(is_sorted(std::vector<int>({1,2,3})));
-            EXPECT_FALSE(is_sorted(std::vector<int>({3,2,1})));
-            EXPECT_TRUE(is_sorted(std::vector<int>({})));
-            EXPECT_TRUE(is_sorted(std::vector<int>({1,1,1})));
-            EXPECT_TRUE(is_sorted(std::vector<int>({1})));
-            EXPECT_TRUE(is_sorted(std::vector<int>({1,1,1,2})));
-            EXPECT_FALSE(is_sorted(std::vector<int>({2,1,1,1})));
-            // TODO(AKutsan): Add negative values check;
-        };
-        LTEST(is_sorted_str_test){
-            EXPECT_TRUE(is_sorted(StrVec({"a","ab","abc"})));
-            EXPECT_FALSE(is_sorted(StrVec({"aaa","aa","a"})));
-            EXPECT_TRUE(is_sorted(StrVec({})));
-            EXPECT_TRUE(is_sorted(StrVec({"1","1","1"})));
-            EXPECT_TRUE(is_sorted(StrVec({"1"})));
-            EXPECT_TRUE(is_sorted(StrVec({"1","1","1","aa"})));
-            EXPECT_FALSE(is_sorted(StrVec({"AA","1","A","1"})));
-        };
+LTEST(is_sorted_test){
+    LTEST(is_sorted_int_test){
+
+        EXPECT_TRUE(is_sorted(std::vector<int>({1,2,3})));
+        EXPECT_FALSE(is_sorted(std::vector<int>({3,2,1})));
+        EXPECT_TRUE(is_sorted(std::vector<int>({})));
+        EXPECT_TRUE(is_sorted(std::vector<int>({1,1,1})));
+        EXPECT_TRUE(is_sorted(std::vector<int>({1})));
+        EXPECT_TRUE(is_sorted(std::vector<int>({1,1,1,2})));
+        EXPECT_FALSE(is_sorted(std::vector<int>({2,1,1,1})));
+        EXPECT_TRUE(is_sorted (std::vector<int>({-3,-2,-1})));
+        EXPECT_FALSE(is_sorted (std::vector<int>({-3,-1,-2})));
+        EXPECT_FALSE(is_sorted(std::vector<int>({-1, -2, -3})));
+        EXPECT_TRUE(is_sorted(std::vector<int>({-1})));
+        EXPECT_TRUE(is_sorted(std::vector<int>({-1, -1, -1})));
+
+        // TODO(AKutsan): Add negative values check;
     };
+    LTEST(is_sorted_str_test){
+        EXPECT_TRUE(is_sorted(already_sorted));
+        EXPECT_TRUE(is_sorted(empty_arr));
+        EXPECT_FALSE(is_sorted(unsorted_arr));
+        EXPECT_FALSE(is_sorted(regular_case));
+        EXPECT_FALSE(is_sorted(mixed_arr));
+        EXPECT_TRUE(is_sorted(same_values));
+    };
+};
+
+
+LTEST(compare_to_size_tests) {
 
     LTEST(std_sort_test){
-        CompareStrategyFactory cmp_strategy_factory;
-        Sorter sorter(std::make_unique<SortStrategyFactoryImpl>(cmp_strategy_factory));
+
         sorter.set(kStdSort);
+
         LTEST(already_sorted) {
-            StrVec data({"a","ab","abc"});
-            sorter.sort(data, kCompareToSize);
-            EXPECT_TRUE(is_sorted(data));
+            StrVec to_sort = already_sorted;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(empty_arr) {
+            StrVec to_sort = empty_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(unsorted_arr) {
+            StrVec to_sort = unsorted_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
         };
         LTEST(regular_case) {
-            StrVec data({"ab", "a", "abc"});
-            sorter.sort(data, kCompareToSize);
-            EXPECT_TRUE(is_sorted(data));
+            StrVec to_sort = regular_case;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
         };
+        LTEST(mixed_arr) {
+            StrVec to_sort = mixed_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(same_values) {
+            StrVec to_sort = same_values;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+
     };
+
+    LTEST(merge_sort_test){
+
+        sorter.set(kMergeSort);
+
+        LTEST(already_sorted) {
+            StrVec to_sort = already_sorted;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(empty_arr) {
+            StrVec to_sort = empty_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(unsorted_arr) {
+            StrVec to_sort = unsorted_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(regular_case) {
+            StrVec to_sort = regular_case;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(mixed_arr) {
+            StrVec to_sort = mixed_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(same_values) {
+            StrVec to_sort = same_values;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+
+    };
+
+
+   /* LTEST(quick_sort_test){
+
+        sorter.set(kQuickSort);
+
+        LTEST(already_sorted) {
+            StrVec to_sort = already_sorted;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(empty_arr) {
+            StrVec to_sort = empty_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(unsorted_arr) {
+            StrVec to_sort = unsorted_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(regular_case) {
+            StrVec to_sort = regular_case;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(mixed_arr) {
+            StrVec to_sort = mixed_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(same_values) {
+            StrVec to_sort = same_values;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+
+    };
+
+
+    LTEST(selection_sort_test){
+
+        sorter.set(kSelectionSort);
+
+        LTEST(already_sorted) {
+            StrVec to_sort = already_sorted;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(empty_arr) {
+            StrVec to_sort = empty_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(unsorted_arr) {
+            StrVec to_sort = unsorted_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(regular_case) {
+            StrVec to_sort = regular_case;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(mixed_arr) {
+            StrVec to_sort = mixed_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(same_values) {
+            StrVec to_sort = same_values;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+
+    };*/
 };

@@ -12,7 +12,7 @@ enum CompareType{
 
 class CompareStrategyFactory{
 public:
-    string_less createCompareFactory(CompareType c);
+    string_less createCompareStrategy(CompareType cmp_type);
 };
 
 #endif // COMPARESTRATEGYFACTORY_H

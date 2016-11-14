@@ -35,7 +35,7 @@ int main(){
 
 
     CompareStrategyFactory f;
-    auto less1 = f.createCompareFactory(kCompareToVal);
+    auto less1 = f.createCompareStrategy(kCompareToVal);
     std::cout << less1("dd", "ddd") << std::endl;
     std::cout << less1("ddddd", "cc") << std::endl;
     std::cout << less1("0xxx", "xxx") << std::endl;

@@ -8,8 +8,8 @@ SortStrategyFactoryImpl::SortStrategyFactoryImpl(CompareStrategyFactory &cmp_str
     :cmp_strategy_factory_(cmp_strategy_factory){
 }
 
-std::unique_ptr<SortStrategy> SortStrategyFactoryImpl::createSortStrategy(SortingType s){
-    switch (s) {
+std::unique_ptr<SortStrategy> SortStrategyFactoryImpl::createSortStrategy(SortingType srt_type){
+    switch (srt_type) {
     case kMergeSort:
         return std::make_unique<MergeSort>(cmp_strategy_factory_);
     case kQuickSort:

@@ -7,7 +7,7 @@
 class SortStrategy{
 public:
     virtual ~SortStrategy(){}
-    virtual void sort(std::vector<std::string>& lines, CompareType c) = 0;
+    virtual void sort(std::vector<std::string>& lines, CompareType cmp_type) = 0;
 };
 
 #endif // SORTSTRATEGY_H

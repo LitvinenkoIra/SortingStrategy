@@ -6,7 +6,7 @@
 class SelectionSort : public SortStrategy{
 public:
     SelectionSort(CompareStrategyFactory& cmp_strategy_factory);
-    void sort(std::vector<std::string>& lines, CompareType c) override;
+    void sort(std::vector<std::string>& lines, CompareType cmp_type) override;
 private:
     CompareStrategyFactory& cmp_strategy_factory_;
 };

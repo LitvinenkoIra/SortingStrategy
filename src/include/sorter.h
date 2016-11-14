@@ -10,7 +10,7 @@ public:
     Sorter(std::unique_ptr<SortStrategyFactory> factory_);
     ~Sorter();
     void set(SortingType s);
-    void sort(std::vector<std::string>& lines, CompareType c);
+    void sort(std::vector<std::string>& lines, CompareType cmp_type);
 private:
     std::unique_ptr<SortStrategyFactory> factory_;
     std::unique_ptr<SortStrategy> strategy_;

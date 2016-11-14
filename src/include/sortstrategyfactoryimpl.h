@@ -6,7 +6,7 @@
 class SortStrategyFactoryImpl : public SortStrategyFactory {
 public:
     SortStrategyFactoryImpl(CompareStrategyFactory& cmp_strategy_factory);
-    std::unique_ptr<SortStrategy> createSortStrategy(SortingType s);
+    std::unique_ptr<SortStrategy> createSortStrategy(SortingType srt_type);
 private:
     CompareStrategyFactory& cmp_strategy_factory_;
 };
