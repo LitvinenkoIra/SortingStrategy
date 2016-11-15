@@ -8,11 +8,11 @@ Sorter::Sorter(std::unique_ptr<SortStrategyFactory> factory):
 
 Sorter::~Sorter(){}
 
-void Sorter::set(SortingType s){
-    strategy_ = std::move(factory_->createSortStrategy(s));
+void Sorter::set(SortingType srt_type){
+    strategy_ = std::move(factory_->createSortStrategy(srt_type));
 }
 
-void Sorter::sort(std::vector<std::string>& lines, CompareType c){
-    strategy_->sort(lines, c);
+void Sorter::sort(std::vector<std::string>& lines, CompareType cmp_type){
+    strategy_->sort(lines, cmp_type);
 }
 
