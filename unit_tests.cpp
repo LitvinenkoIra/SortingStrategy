@@ -114,38 +114,36 @@ LTEST(compare_to_size_tests) {
 
         sorter.set(kMergeSort);
 
-//        LTEST(already_sorted) {
-//            StrVec to_sort = already_sorted;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
-//        LTEST(empty_arr) {
-//            StrVec to_sort = empty_arr;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
-        LTEST(unsorted_arr) {
-            StrVec to_sort = unsorted_arr;
-            print_arr(to_sort.begin(), to_sort.end());
+        LTEST(already_sorted) {
+            StrVec to_sort = already_sorted;
             sorter.sort(to_sort, kCompareToSize);
-            print_arr(to_sort.begin(), to_sort.end());
             EXPECT_TRUE(is_sorted(to_sort));
         };
-//        LTEST(regular_case) {
-//            StrVec to_sort = regular_case;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
-//        LTEST(mixed_arr) {
-//            StrVec to_sort = mixed_arr;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
-//        LTEST(same_values) {
-//            StrVec to_sort = same_values;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
+        LTEST(empty_arr) {
+            StrVec to_sort = empty_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(unsorted_arr) {
+            StrVec to_sort = unsorted_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(regular_case) {
+            StrVec to_sort = regular_case;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(mixed_arr) {
+            StrVec to_sort = mixed_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(same_values) {
+            StrVec to_sort = same_values;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
 
     };
 
@@ -188,40 +186,40 @@ LTEST(compare_to_size_tests) {
 //    };
 
 
-//    LTEST(selection_sort_test){
+    LTEST(selection_sort_test){
 
-//        sorter.set(kSelectionSort);
+        sorter.set(kSelectionSort);
 
-//        LTEST(already_sorted) {
-//            StrVec to_sort = already_sorted;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
-//        LTEST(empty_arr) {
-//            StrVec to_sort = empty_arr;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
-//        LTEST(unsorted_arr) {
-//            StrVec to_sort = unsorted_arr;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
-//        LTEST(regular_case) {
-//            StrVec to_sort = regular_case;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
-//        LTEST(mixed_arr) {
-//            StrVec to_sort = mixed_arr;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
-//        LTEST(same_values) {
-//            StrVec to_sort = same_values;
-//            sorter.sort(to_sort, kCompareToSize);
-//            EXPECT_TRUE(is_sorted(to_sort));
-//        };
+        LTEST(already_sorted) {
+            StrVec to_sort = already_sorted;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(empty_arr) {
+            StrVec to_sort = empty_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(unsorted_arr) {
+            StrVec to_sort = unsorted_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(regular_case) {
+            StrVec to_sort = regular_case;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(mixed_arr) {
+            StrVec to_sort = mixed_arr;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
+        LTEST(same_values) {
+            StrVec to_sort = same_values;
+            sorter.sort(to_sort, kCompareToSize);
+            EXPECT_TRUE(is_sorted(to_sort));
+        };
 
-//    };
+    };
 };

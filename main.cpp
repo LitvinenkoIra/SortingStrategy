@@ -17,7 +17,7 @@ void test_to_size_less(string_less less_func) {
 
 int main(){
 
-    const std::string inputfile("/home/ira/SorterWithStrategy/input.txt");
+    const std::string inputfile("/home/ira/pro/SortingStrategy/input.txt");
     std::ifstream ifs(inputfile.c_str());
     if(!ifs){
     std::cerr << "Can't open \'" << inputfile << "\' for input" << std::endl;
