@@ -11,9 +11,6 @@
 #include "quicksort.h"
 #include "comparestrategyfactory.h"
 
-void test_to_size_less(string_less less_func) {
-
-}
 
 int main(){
 
@@ -33,16 +30,9 @@ int main(){
         lines.push_back(line);
     }
 
-
     CompareStrategyFactory f;
-    auto less1 = f.createCompareStrategy(kCompareToVal);
-    std::cout << less1("dd", "ddd") << std::endl;
-    std::cout << less1("ddddd", "cc") << std::endl;
-    std::cout << less1("0xxx", "xxx") << std::endl;
-
     Sorter sorter(std::make_unique<SortStrategyFactoryImpl>(f));
-    sorter.set(kMergeSort);
+    sorter.set(kQuickSort);
     sorter.sort(lines, kCompareToSize);
-
     return 0;
 }
