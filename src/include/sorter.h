@@ -3,9 +3,10 @@
 
 #include "sortstrategy.h"
 #include "sortstrategyfactory.h"
+#include "eventobservableimpl.h"
 
 
-class Sorter{
+class Sorter : public EventObservableImpl{
 public:
     Sorter(std::unique_ptr<SortStrategyFactory> factory_);
     ~Sorter();

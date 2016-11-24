@@ -13,6 +13,9 @@ set (SRC_LIST
     src/sortstrategyfactoryimpl.cpp
     src/comparestrategyfactory.cpp
     src/stdsort.cpp
+    src/eventobservableimpl.cpp
+    src/timecalculator.cpp
+    src/timemeasureimpl.cpp
     )
 
 include_directories(

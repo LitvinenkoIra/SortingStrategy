@@ -13,6 +13,8 @@ void Sorter::set(SortingType srt_type){
 }
 
 void Sorter::sort(std::vector<std::string>& lines, CompareType cmp_type){
+    notifyStart();
     strategy_->sort(lines, cmp_type);
+    notifyStop();
 }
 
