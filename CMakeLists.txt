@@ -20,14 +20,11 @@ set (SRC_LIST
 
 include_directories(
 ${CMAKE_SOURCE_DIR}/src/include
-${CMAKE_SOURCE_DIR}/limo
 )
 
 add_library(sort ${SRC_LIST})
 
 add_executable(${PROJECT_NAME} main.cpp)
-add_executable(unit_tests unit_tests.cpp)
 
 target_link_libraries(${PROJECT_NAME} sort)
-target_link_libraries(unit_tests sort)
 
